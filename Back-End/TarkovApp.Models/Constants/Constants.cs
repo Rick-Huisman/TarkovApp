@@ -1,4 +1,4 @@
-﻿namespace TarkovApp.Constants;
+﻿namespace TarkovApp.Models.Constants;
 
 public static class Constants
 {

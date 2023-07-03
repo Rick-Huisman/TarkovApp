@@ -1,6 +1,6 @@
 ﻿using TarkovApp.Controllers;
 using TarkovApp.Services;
-using TarkovApp.Services.Interfaces;
+using TarkovApp.Models.Constants;
 
 namespace TarkovApp;
 
@@ -13,7 +13,7 @@ public class Program
         Console.SetWindowSize(125, 25);
         Console.ForegroundColor = ConsoleColor.Green;
 
-        Console.WriteLine(Constants.Constants.TarkovAppLogo + "\n");
+        Console.WriteLine(Constants.TarkovAppLogo + "\n");
         Console.WriteLine($"© Rick Huisman / Schwaaaa - {DateTime.Now.Year}");
 
         Console.ResetColor();

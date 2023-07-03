@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using TarkovApp.Services.Interfaces;
+using TarkovApp.Models.Constants;
 
 namespace TarkovApp.Services;
 
@@ -15,7 +16,7 @@ public class ConnectorService : IConnectorService
 
     private void AddQueryToRequest(string query)
     {
-        _request.Add(Constants.Constants.TarkovApiQueryString, query);
+        _request.Add(Constants.TarkovApiQueryString, query);
     }
 
     private void RemoveQueriesFromRequest()
@@ -25,7 +26,7 @@ public class ConnectorService : IConnectorService
 
     private async Task<string> GetDataFromTarkovApi()
     {
-        var response = await _httpClient.PostAsJsonAsync(Constants.Constants.TarkovApiEndpoint, _request);
+        var response = await _httpClient.PostAsJsonAsync(Constants.TarkovApiEndpoint, _request);
 
         RemoveQueriesFromRequest();
 

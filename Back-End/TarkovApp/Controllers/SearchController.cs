@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using TarkovApp.Mappers;
 using TarkovApp.Models;
-using TarkovApp.Models.Dtos;
+using TarkovApp.Models.Constants;
 using TarkovApp.Services.Interfaces;
 
 namespace TarkovApp.Controllers;
@@ -17,7 +17,7 @@ public class SearchController
 
     public async Task<Item> GetItemAsync(string searchTerm)
     {
-        var returnData = await _connectorService.GetItemRequestAsync("{items(name: \"" + searchTerm + "\") { " + Constants.Constants.BasicItemProperties + " }}");
+        var returnData = await _connectorService.GetItemRequestAsync("{items(name: \"" + searchTerm + "\") { " + Constants.BasicItemProperties + " }}");
 
         return AutoMapper.MapFromJsonToDto(returnData).Data.Items.FirstOrDefault();
     }
