@@ -5,6 +5,7 @@
 <p align='center'>
   <img src="https://img.shields.io/badge/made_with-C%23-blue?style=plastic" alt="me fr" />
   <img src="https://img.shields.io/github/languages/code-size/Rick-Huisman/TarkovApp?style=plastic" alt="Repo Size" />
+  <img src="https://img.shields.io/github/last-commit/Rick-Huisman/TarkovApp?style=plastic" alt="Last Commit" />
 </p>
 
 ## Information
