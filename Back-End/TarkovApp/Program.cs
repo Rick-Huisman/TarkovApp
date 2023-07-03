@@ -8,6 +8,8 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+
         Console.SetWindowSize(125, 25);
         Console.ForegroundColor = ConsoleColor.Green;
 
