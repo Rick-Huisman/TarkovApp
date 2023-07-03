@@ -1,7 +1,6 @@
 # TarkovApp
 
-![image](https://github.com/schwaaaa/TarkovApp/assets/96921300/f7ab6765-2a58-4fdb-ace6-40e0eed29c4f)
-
+![image](https://github.com/Rick-Huisman/TarkovApp/assets/138512421/b862e2de-0964-44ea-af9c-e5b04ac00612)
 
 ## Information
 - Working connection with C# without using any GraphQL packages
