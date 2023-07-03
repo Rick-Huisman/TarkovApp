@@ -1,4 +1,6 @@
-﻿using TarkovApp.Controllers;
+﻿using System.Runtime.InteropServices.ComTypes;
+using TarkovApp.Controllers;
+using TarkovApp.Models;
 using TarkovApp.Services;
 using TarkovApp.Models.Constants;
 
@@ -10,7 +12,7 @@ public class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        Console.SetWindowSize(125, 25);
+        Console.WindowWidth = 125;
         Console.ForegroundColor = ConsoleColor.Green;
 
         Console.WriteLine(Constants.TarkovAppLogo + "\n");
@@ -26,28 +28,30 @@ public class Program
         var httpClient = new HttpClient();
         var connectorService = new ConnectorService(httpClient);
         var searchController = new SearchController(connectorService);
-        var stopApp = false;
+        var returnedItem = new Item();
 
-        while (!stopApp)
+        while (true)
         {
             DisplayReadyForInput();
 
             var input = Console.ReadLine();
 
-            if (input == "0")
+            if (!string.IsNullOrWhiteSpace(input))
             {
-                stopApp = true;
-            }
+                returnedItem = await searchController.GetItemAsync(input ?? "");
 
-            var returnedItem = await searchController.GetItemAsync(input);
-
-            try
-            {
-                returnedItem.DisplayBasicProperties();
+                try
+                {
+                    returnedItem.DisplayBasicProperties();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error: Couldn't find anything with that input.");
+                }
             }
-            catch (Exception)
+            else
             {
-                Console.WriteLine("Error: Couldn't find anything with that input.");
+                Console.WriteLine("Error: Input cannot be empty.");
             }
         }
 
